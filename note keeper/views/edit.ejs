@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+<body>
+    <div class="main p-10 w-full min-h-screen bg-zinc-900">
+            <a href="/" class="text-blue-500   mb-6 pb-10">Go Back</a>
+
+        <div class="form text-white mt-10">
+           <form action="/edit" method="post">
+             <input type="text" class="text-zinc-600 block w-1/4 rounded-md outline-none bg-zinc-800 px-5 py-2" placeholder="revius Title"  name="previous" value="<%=filename%>" >
+             <input type="text" class="block w-1/4 mt-2 rounded-md outline-none bg-zinc-800 px-5 py-2" placeholder="New Title" name="new">
+         
+            <input type="submit" class="mt-4 bg-yellow-600 px-5 py-1 rounded-md " value="Update Name">
+           </form>
+        </div>
+
+
+    </div>
+</body>
+</html>
