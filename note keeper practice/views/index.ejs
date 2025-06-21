@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+<body>
+    <div class=" min-h-screen bg-zinc-800">
+        <div class=" w-lg mx-auto pt-5 text-white">
+            <form action="/insert" method="post" class="flex flex-col ">
+                <input class="border w-100 px-5 py-2  mt-5"  placeholder="title" name="title" type="text">
+                <input class="border w-100 px-5 py-2  mt-5"  placeholder="content" name="content" type="text">
+                <button class="button border bg-blue-600 px-5 py-2 mt-4 ">submit</button>
+            </form>
+        </div>
+
+        <div class="mt-5 mx-auto w-50 flex gap-3 rounded">
+       <%files.map((ele)=>{ %>
+            <div class="bg-zinc-600 px-5 py-3 rounded-lg">
+                <h1 class="text-3xl"><%=ele%></h1>
+                <a class="text-blue-400" href="/file/<%=ele%>">More details</a>
+            </div>
+            <%  })%>
+        </div>
+    </div>
+</body>
+</html>
