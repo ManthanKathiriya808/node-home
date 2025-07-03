@@ -16,7 +16,7 @@ app.get("/",(req,res)=>{
 })
 
 
-app.post("/create", (req,res)=>{
+app.post("/create",  (req,res)=>{
     let {username,email,password,age} = req.body
 
     bcrypt.genSalt(10, (err,salt)=>{
@@ -43,5 +43,32 @@ app.post("/create", (req,res)=>{
 
 
 })
+
+app.get("/logout", (req,res)=>{
+    res.cookie("token","")
+    res.redirect("/")
+})
+app.get("/login", (req,res)=>{
+    res.render("login")
+    
+})
+
+app.post("/logins", async (req,res)=>{
+   let user = await userModel.findOne({email:req.body.email})
+   if(!user) return res.redirect("/login")
+
+    bcrypt.compare(req.body.password,user.password,function(err,result){
+
+    if(result) {
+        let token = jwt.sign({email :user.email},"shhhhhhh")
+        res.cookie("token",token)
+        res.send("you are logged in")
+    }
+    else{
+
+        res.send("no you cannot login")
+    } 
+    }
+)})    
 
 app.listen(3000)

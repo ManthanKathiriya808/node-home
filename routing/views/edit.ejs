@@ -16,23 +16,26 @@
             <input type="text" placeholder="Title" name="title" class="rounded-lg px-9 py-3 bg-zinc-700"  value="<%=data.title%>"/>
             <input type="text" placeholder="Author" name="author" class="rounded-lg px-9 py-3 bg-zinc-700" value="<%=data.author%>"/>
             <input type="number" placeholder="Price" name="price" class="rounded-lg px-9 py-3 bg-zinc-700" value="<%=data.price%>"/>
-            <textarea rows="4" cols="7"  class="rounded-lg px-9 py-3 bg-zinc-700" placeholder="Description" name="description" value="<%=data.description%>"></textarea>
+            <textarea rows="4" cols="7"  class="rounded-lg px-9 py-3 bg-zinc-700" placeholder="Description" name="description" >
+                <%=data.description%>
+            </textarea>
             <select name="category" id="" class="rounded-lg px-9 py-3 bg-zinc-700"  >
+
                 <option value="<%=data.category%>">category</option>
-                <option value="<%=data.category%>">Fantesy</option>
-                <option value="<%=data.category%>">Horror</option>
-                <option value="<%=data.category%>">Romantic</option>
-                <option value="<%=data.category%>">Thrill</option>
+                <option value="<%=data.category%>">fantesy</option>
+                <option  value="<%=data.category%>">horror</option>
+                <option value="<%=data.category%>">romantic</option>
+                <option value="<%=data.category%>">thrill</option>
             </select>
           <div class="text-zinc-400 text-xl">
               <label for="" >Limited Edition :</label>
-            <input type="radio"   name="limited"  <% if(data.gender == "yes"){ %> checked <% } %> value="yes">
+            <input type="radio"   name="limited"  <% if(data.limited == "yes"){ %> checked <% } %> value="yes">
             <label for="">yes</label>
-            <input type="radio"   name="limited"   <% if(data.gender == "no"){ %> checked <% } %> value="no" >
+            <input type="radio"   name="limited"   <% if(data.limited == "no"){ %> checked <% } %> value="no" >
             <label for="">no</label>
         </div>
 
-        <img width="100px"  src="<%=data.image%>" alt="">
+        <img width="100px"  src="/<%=data.image%>" alt="">
 
 <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload file</label>
 <input class="block w-full px-5 py-4 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" value="<%data.image%>" name="image" id="file_input" type="file">
